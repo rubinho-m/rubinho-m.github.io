@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to CV</title>
+    <script>
+        window.onload = function() {
+            let baseUrl = window.location.href.split('?')[0].split('#')[0];
+            if (baseUrl.endsWith('/')) {
+                baseUrl = baseUrl.slice(0, -1);
+            }
+            window.location.href = baseUrl + '/cv.pdf';
+        };
+    </script>
+</head>
+<body>
+<p>If you are not redirected automatically, <a id="redirectLink" href="#">click here</a>.</p>
+
+<script>
+    document.getElementById('redirectLink').href = window.location.href.split('?')[0].split('#')[0].replace(/\/$/, '') + '/cv.pdf';
+</script>
+</body>
+</html>
